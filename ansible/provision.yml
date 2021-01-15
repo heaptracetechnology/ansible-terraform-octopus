@@ -1,0 +1,36 @@
+---
+- hosts: windows
+ 
+  tasks:
+    - name: Install IIS with Roles and Features
+      win_feature:
+        name:
+          - Web-Server
+          - Web-Mgmt-Console
+          - MSMQ-Server
+          - Web-Common-Http
+          - Web-Default-Doc
+          - Web-Dir-Browsing
+          - Web-Http-Errors
+          - Web-Static-Content
+          - Web-Http-Redirect
+          - Web-Http-Logging             
+          - Web-Log-Libraries
+          - Web-ODBC-Logging
+          - Web-Request-Monitor
+          - Web-Performance
+          - Web-Security
+          - Web-Filtering
+          - Web-ApplicationDevelopment
+          - Web-NetFxExtensibility
+          - Web-NetFxExtensibility45
+          - Web-Asp-Net45
+          - Web-Asp-Net
+          - Web-ISAPI-Ext
+          - Web-ISAPI-Filter
+          - Web-WebServerManagementTools
+          - Web-Mgmt-Console
+        state: present
+        restart: False
+        include_sub_features: True
+        include_management_tools: True
